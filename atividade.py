@@ -9,15 +9,12 @@ def todos():
         cont = cont +1
         print(str(cont)+"-"+i['name'])
         
-
 def ler_us():
     usuario2 = input('Qual usuario deseja verificar:')
     url = api_url + "/users{}".format(usuario2)
     response = requests.get(url)
     print(response.json())
     
-
-
 def criar_us():
     url = api_url + "/users"
     todo = {"name":"Fellipe Patrick"}
@@ -46,6 +43,22 @@ def menu():
     for i in lista:
         cont = cont +1
         print(str(cont)+" - "+i)
-    escolha = int(input())
-        
-menu()
+    escolha = int(input('Digite o que quer fazer:'))
+    if escolha == 1:
+        criar_us()
+    elif escolha == 2:
+        ler_us()
+    elif escolha == 3:
+        deletar_us()
+    elif escolha == 4:
+        atualiar_us()
+    elif escolha == 5:
+        todos()
+
+pergunta = "sim"
+
+while pergunta == "sim":
+    menu()
+    pergunta = input("Deseja continuar (sim ou não):")
+    
+
