@@ -17,7 +17,8 @@ def ler_us():
     
 def criar_us():
     url = api_url + "/users"
-    todo = {"name":"Fellipe Patrick"}
+    name2 = input('Digite o nome para alterar:')
+    todo = {"name": name2}
     response = requests.post(url, json=todo)
     print(response.json())
 
@@ -32,9 +33,18 @@ def atualiar_us():
     
     att = input('Qual usuario deseja atualizar?')
     url = api_url + "/todos/{}".format(att)
-    todo = {"userId": 1, "title": "Lavar carro", "completed": True}
+    Id2 = input('Digite o novo ip para atualizalo')
+    title2 = input('Digite o novo titulo para atualizalo')
+    todo = {"Id": Id2, "title": title2 }
     response = requests.put(url, json=todo)
     print(response.json())
+    
+def criar_t():
+    id1 = input('Digite o id que você quer alterar:')
+    url = api_url +'/users'+{}+ "/todos".format(id1)
+    response = requests.get(url)
+    print(response.json['id'])
+    
 
 lista = ['Criar Usuario', 'Ler Usuario', 'Deletar Usuario', 'Atualizar Usuario', 'Ver todos Usuario']
 
