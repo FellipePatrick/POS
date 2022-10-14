@@ -7,4 +7,4 @@ def criar_t():
     response = requests.get(url)
     print(type(response))
     
-criar_t()
+print ('hello')
