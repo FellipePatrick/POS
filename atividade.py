@@ -38,15 +38,45 @@ def atualiar_us():
     todo = {"Id": Id2, "title": title2 }
     response = requests.put(url, json=todo)
     print(response.json())
-    
-def criar_t():
-    id1 = input('Digite o id que você quer alterar:')
-    url = api_url +'/users'+{}+ "/todos".format(id1)
-    response = requests.get(url)
-    print(response.json['id'])
-    
 
-lista = ['Criar Usuario', 'Ler Usuario', 'Deletar Usuario', 'Atualizar Usuario', 'Ver todos Usuario']
+
+def criar_t():
+    id = str(input("Digite o ID em que quer criar uma tarefa:"))
+    url = api_url +'/users/'+id+'/todos'
+    todo = {"Id": 1}
+    response = requests.post(url, json=todo)
+    print(response.json())
+    
+def ver_t():
+    id = str(input('Tarefa de quais atividades você quer ver?'))
+    url = api_url +'/users/'+id+ "/todos"
+    responsecheck = requests.get(url)
+    response = requests.get(url).json()
+    if responsecheck.status_code== 200:
+        for task in response:
+            print('Título: ', task['title'])
+            print('ID', task['id'])
+            print('Status: ', task['completed'])           
+
+def delete_t():
+    id = str(input('Tarefa que deseja deletar?'))
+    url = api_url +'/users/'+id+ "/todos"
+    response = requests.delete(url)
+    print(response.json())
+    print(response.status_code)
+    
+    
+def atualizar_t():
+    id = str(input('Tarefa que deseja atualizar?'))
+    url = api_url +'/todos/'+id
+    todo = {"userId": 1, "title": "Lavar carro", "completed": True}
+    response = requests.put(url, json=todo)
+    print(response.json())
+    print(response.status_code)
+
+
+
+lista = ['Criar Usuario', 'Ler Usuario', 'Deletar Usuario', 'Atualizar Usuario', 'Ver todos Usuario', 'Criar Tarefa', 'Ver Tarefa', 'Atualizar tarefa', 'Deletar tarefa']
 
 def menu():
     cont = 0
@@ -64,6 +94,14 @@ def menu():
         atualiar_us()
     elif escolha == 5:
         todos()
+    elif escolha == 6:
+        criar_t()
+    elif escolha == 7:
+        ver_t()
+    elif escolha == 8:
+        atualizar_t()
+    elif escolha == 9: 
+        delete_t()
 
 pergunta = "sim"
 
