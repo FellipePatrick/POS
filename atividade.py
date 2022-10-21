@@ -23,7 +23,6 @@ def criar_us():
     print(response.json())
 
 def deletar_us():
-    
     delet = input("Qual usuario deseja deletar?")
     url = api_url + "/posts/{}".format(delet)
     response = requests.delete(url)
