@@ -11,7 +11,7 @@ def todos():
         
 def ler_us():
     usuario2 = input('Qual usuario deseja verificar:')
-    url = api_url + "/users{}".format(usuario2)
+    url = api_url + "/users/{}".format(usuario2)
     response = requests.get(url)
     print(response.json())
     
@@ -49,10 +49,10 @@ def criar_t():
     
 def ver_t():
     id = str(input('Tarefa de quais atividades você quer ver?'))
-    url = api_url +'/users/'+id+ "/todos"
+    url = api_url +"/todos/"+id+ "/todos/"
     responsecheck = requests.get(url)
     response = requests.get(url).json()
-    if responsecheck.status_code== 200:
+    if responsecheck.status_code == 200:
         for task in response:
             print('Título: ', task['title'])
             print('ID', task['id'])
@@ -60,7 +60,7 @@ def ver_t():
 
 def delete_t():
     id = str(input('Tarefa que deseja deletar?'))
-    url = api_url +'/users/'+id+ "/todos"
+    url = api_url +"/todos/" + id
     response = requests.delete(url)
     print(response.json())
     print(response.status_code)
@@ -76,7 +76,9 @@ def atualizar_t():
 
 
 
-lista = ['Criar Usuario', 'Ler Usuario', 'Deletar Usuario', 'Atualizar Usuario', 'Ver todos Usuario', 'Criar Tarefa', 'Ver Tarefa', 'Atualizar tarefa', 'Deletar tarefa']
+lista = ['Criar Usuario', 'Ler Usuario', 'Deletar Usuario', 'Atualizar Usuario', 
+         'Ver todos Usuario', 'Criar Tarefa', 'Ver Tarefa', 'Atualizar tarefa', 
+         'Deletar tarefa']
 
 def menu():
     cont = 0
