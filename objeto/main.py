@@ -2,4 +2,4 @@ from usuario import User
 
 from tarefa import Tarefa
  
-print(Tarefa.ver_t('2'))
+print(Tarefa.atualizar_t('2'))

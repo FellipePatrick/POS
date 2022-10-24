@@ -1,4 +1,5 @@
 import requests
+
 api_url = "http://jsonplaceholder.typicode.com"
 
 class Tarefa:
@@ -23,11 +24,10 @@ class Tarefa:
         url = api_url +"/todos/" + str(id)
         response = requests.delete(url)
         print(response.json())
-        print(response.status_code) 
+        return response.json()
         
     def atualizar_t(id):
         url = api_url +'/todos/'+ str(id)
         todo = {"userId": 1, "title": "Lavar carro", "completed": True}
         response = requests.put(url, json=todo)
-        print(response.json())
-        print(response.status_code)          
+        return response.json()        

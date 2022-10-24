@@ -5,7 +5,7 @@ api_url = "http://jsonplaceholder.typicode.com"
 class User:    
 
     def ler_us(id):
-        url = api_url + "/users/{}".format(str(id))
+        url = api_url + "/users/{}".format( str(id))
         response = requests.get(url)
         return response.json()
             
@@ -22,7 +22,7 @@ class User:
         return response.json()
     
     def atualiar_us(id, dicionario):
-        url = api_url + "/todos/{}".format(str(id))
+        url = api_url + "/todos/{}".format( str(id))
         todo = dicionario
         response = requests.put(url, json=todo)
         return response.json()
