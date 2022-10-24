@@ -3,6 +3,14 @@ import requests
 api_url = "http://jsonplaceholder.typicode.com"
 
 class User:    
+    
+    def todos():
+        url = api_url + "/users"
+        alluser = requests.get(url).json()
+        cont = 0
+        for i in alluser:
+            cont = cont +1
+            print(str(cont)+"-"+i['name'])
 
     def ler_us(id):
         url = api_url + "/users/{}".format( str(id))
