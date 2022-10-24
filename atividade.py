@@ -29,7 +29,6 @@ def deletar_us():
     print(response.json())
     
 def atualiar_us():
-    
     att = input('Qual usuario deseja atualizar?')
     url = api_url + "/todos/{}".format(att)
     Id2 = input('Digite o novo ip para atualizalo')

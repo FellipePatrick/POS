@@ -1,4 +1,5 @@
-import User from usuario 
+from usuario import User
 
-import Tarefa from tarefa
-
+from tarefa import Tarefa
+ 
+print(Tarefa.ver_t('2'))
