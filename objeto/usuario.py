@@ -17,9 +17,9 @@ class User:
         response = requests.get(url)
         return response.json()
             
-    def criar_us(nome):
+    def criar_us( dicionario):
         url = api_url + "/users"
-        todo = {"name": str(nome)}
+        todo = dicionario
         response = requests.post(url, json=todo)
         return response.json()
     
