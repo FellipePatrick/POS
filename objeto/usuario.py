@@ -4,6 +4,9 @@ api_url = "http://jsonplaceholder.typicode.com"
 
 class User:    
     
+    def __init__(self) -> None:
+        pass
+    
     def todos():
         url = api_url + "/users"
         alluser = requests.get(url).json()

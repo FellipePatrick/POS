@@ -3,6 +3,9 @@ import requests
 api_url = "http://jsonplaceholder.typicode.com"
 
 class Tarefa:
+    
+    def __init__(self) -> None:
+        pass
    
     def criar_t(id, dicionario):
         url = api_url +'/users/'+str(id)+'/todos'
@@ -18,16 +21,14 @@ class Tarefa:
             for task in response:
                 print('Título: ', task['title'])
                 print('ID', task['id'])
-                print('Status: ', task['completed'])
     
     def delete_t(id):
         url = api_url +"/todos/" + str(id)
         response = requests.delete(url)
-        print(response.json())
         return response.json()
         
-    def atualizar_t(id):
+    def atualizar_t(id, dicionario):
         url = api_url +'/todos/'+ str(id)
-        todo = {"userId": 1, "title": "Lavar carro", "completed": True}
+        todo = dicionario
         response = requests.put(url, json=todo)
         return response.json()        
