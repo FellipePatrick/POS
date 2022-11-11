@@ -25,6 +25,6 @@ elif p == 'checar':
         auth = HTTPBasicAuth(user, password))
  
   
-print(response.text)
+print(response[('login')])
 
 print(response)
