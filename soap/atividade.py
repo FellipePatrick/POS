@@ -37,7 +37,6 @@ def atualiar_us():
     response = requests.put(url, json=todo)
     print(response.json())
 
-
 def criar_t():
     id = str(input("Digite o ID em que quer criar uma tarefa:"))
     url = api_url +'/users/'+id+'/todos'
@@ -63,7 +62,6 @@ def delete_t():
     print(response.json())
     print(response.status_code)
     
-    
 def atualizar_t():
     id = str(input('Tarefa que deseja atualizar?'))
     url = api_url +'/todos/'+id
@@ -71,8 +69,6 @@ def atualizar_t():
     response = requests.put(url, json=todo)
     print(response.json())
     print(response.status_code)
-
-
 
 lista = ['Criar Usuario', 'Ler Usuario', 'Deletar Usuario', 'Atualizar Usuario', 
          'Ver todos Usuario', 'Criar Tarefa', 'Ver Tarefa', 'Atualizar tarefa', 
