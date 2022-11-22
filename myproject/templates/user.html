@@ -1,12 +1,99 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>{% block title %} {{ user_data['name'] }} {% endblock %}</h2>
-
-    {% for field in user_data %}
-
-    <p> <b>{{ field }}</b>: {{ user_data[field] }} </p>
-
-    {% endfor %}
-
+    <div class="container perfil emp-profile ">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img src="https://th.bing.com/th/id/R.e57bd923eaf8b6f42ed74d503b20a270?rik=RjmcO1yzKD%2bsTQ&pid=ImgRaw&r=0" alt=""/>
+                        <div class="file btn btn-lg btn-primary">
+                           Trocar Foto
+                            <input type="file" name="file"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                                <h5>
+                                    {{ user_data['name'] }}
+                                </h5>
+                                <p>
+                                    <h6>
+                                        {{user_data['username']}}
+                                    </h6>
+                                </p>
+                                <p class="proile-rating">ENDEREÇO: <span>{{user_data['address']['zipcode']}}</span></p>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sobre</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Linha do Tempo</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Voltar" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-work">
+                        <p>Links de Trabalhos</p>
+                        <a href="#">Website Link</a><br/>
+                        <a href="#">{{user_data['website']}}</a><br/>
+                        <p>SKILLS</p>
+                        <a href="">Web Designer</a><br/>
+                        <a href="">Web Developer</a><br/>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>User Id</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{user_data['id']}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Nome</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{user_data['name']}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Email</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{user_data['email']}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Telefone</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{user_data['phone']}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Empresa</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{user_data['company']['name']}}</p>
+                                        </div>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 {% endblock %}
