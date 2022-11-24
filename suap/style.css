@@ -3,7 +3,6 @@
     padding: 0px;
 }
 
-
 body {
     color: #000;
     overflow-x: hidden;
@@ -20,10 +19,6 @@ body {
 .card2 {
     margin: 0px 40px;
 }
-
-
-
-
 
 .border-line {
     border-right: 1px solid #EEEEEE;
