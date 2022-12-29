@@ -28,7 +28,7 @@ footer {
 
 .fixarRodape {
     bottom: 0;
-    position: fixed;
+    margin-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
